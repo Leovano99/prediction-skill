@@ -450,6 +450,8 @@ fn run_iteration(server_url: &str, openclaw_bin: &str, agent_id: &str) -> Iterat
         }
     };
 
+    log_info!("loop: LLM response: {}", llm_text);
+
     // 9. Parse LLM response
     let decision = match parse_llm_response(&llm_text) {
         Ok(parsed) => parsed,
@@ -614,7 +616,9 @@ fn build_prompt(
     // parse it structurally — just forward it to the LLM, which can read
     // through the noise and produce compliant reasoning. Submissions that
     // violate any constraint are rejected.
-    if let Some(obf) = challenge.get("prompt").and_then(|v| v.as_str()) {
+    if let Some(obf) = challenge.get("challenge").and_then(|v| v.as_str()) {
+        log_info!("loop: challenge: CHALLENGE FOUND");
+        log_info!("loop: challenge: {}", obf);
         prompt.push_str("## Server-Issued Challenge (reasoning must satisfy this in one pass)\n\n");
         prompt.push_str(&format!(
             "Submit only to market `{}`. The challenge below applies to your `reasoning` string.\n\n",
