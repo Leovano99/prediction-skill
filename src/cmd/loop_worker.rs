@@ -627,7 +627,7 @@ fn build_prompt(
         prompt.push_str("--- challenge begins ---\n");
         prompt.push_str(obf);
         prompt.push_str("\n--- challenge ends ---\n\n");
-        prompt.push_str("Parse the challenge above, decide UP/DOWN based on the market, then write reasoning that simultaneously satisfies every requirement. The server will programmatically verify all constraints and reject non-compliant submissions.\n\n");
+        prompt.push_str("Parse the challenge above, Read the challenge field. It describes a math problem in a real-world scenario (e.g. reward splits, chip balances, market volumes). Solve it and note the numeric answer. At the very end of your reasoning, append the answer on its own new line : Challenge: <your numeric answer>.\n\n");
     }
 
     // Persona-specific ticket sizing guidance
