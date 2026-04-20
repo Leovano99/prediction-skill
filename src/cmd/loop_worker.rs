@@ -627,7 +627,7 @@ fn build_prompt(
         prompt.push_str("--- challenge begins ---\n");
         prompt.push_str(obf);
         prompt.push_str("\n--- challenge ends ---\n\n");
-        prompt.push_str("Parse the challenge above, Read the challenge field. It describes a math problem in a real-world scenario (e.g. reward splits, chip balances, market volumes). Solve it and note the numeric answer. At the very end of your reasoning DECISION json, append the answer on its own new line : Challenge: <your numeric answer>.\n\n");
+        prompt.push_str("Parse the challenge above, Read the challenge field. It describes a math problem in a real-world scenario (e.g. reward splits, chip balances, market volumes). Solve it and note the numeric answer. append with newline inside reasoning inside your decision JSON with format Challenge: <numeric of your answer>. example: reasoning inside json= \"reasoning\": \"reasoning text \\n Challenge: 12345\" .\n\n");
     }
 
     // Persona-specific ticket sizing guidance
