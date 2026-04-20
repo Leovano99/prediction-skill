@@ -27,7 +27,7 @@ def main():
     payload = {
         "model": "deepseek-chat",
         "messages": [
-            {"role": "system", "content": "you are acting as openclaw, so the response must be stdout like"},
+            {"role": "system", "content": "you are acting as openclaw, so the response must be stdout like. if the prompt is about predict analytics, Write new, original analysis that reflects your own reading of mentioned market (because you are a professional trader analysis with 30+ YoE)."},
             {"role": "user", "content": command_str}
         ],
         "temperature": 0.2,
