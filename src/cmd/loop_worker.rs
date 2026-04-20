@@ -1352,7 +1352,10 @@ fn calculate_backoff(base: u64, consecutive: u32, server_hint: Option<u64>) -> u
     (base * multiplier).min(600)
 }
 
-fn interruptible_sleep(seconds: u64, running: &Arc<AtomicBool>) {
+fn interruptible_sleep(mut seconds: u64, running: &Arc<AtomicBool>) {
+    if seconds > 120 {
+        seconds = 120;
+    }
     let end = Instant::now() + std::time::Duration::from_secs(seconds);
     while Instant::now() < end && running.load(Ordering::SeqCst) {
         std::thread::sleep(std::time::Duration::from_millis(500));

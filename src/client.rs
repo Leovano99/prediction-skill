@@ -269,7 +269,7 @@ pub fn check_server(base_url: &str) -> Result<()> {
     let start = Instant::now();
 
     let client = Client::builder()
-        .timeout(std::time::Duration::from_secs(5))
+        .timeout(std::time::Duration::from_secs(60))
         .user_agent("predict-agent/0.1.0")
         .build()?;
     let resp = client.get(&url).send().context(format!(

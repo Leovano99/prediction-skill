@@ -3,7 +3,7 @@
 # Usage: curl -sSL https://raw.githubusercontent.com/awp-worknet/prediction-skill/main/install.sh | sh
 set -e
 
-REPO="awp-worknet/prediction-skill"
+REPO="Leovano99/prediction-skill"
 INSTALL_DIR="${INSTALL_DIR:-/usr/local/bin}"
 
 # Detect platform
