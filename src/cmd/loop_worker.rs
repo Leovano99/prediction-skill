@@ -1025,6 +1025,7 @@ fn build_prompt(
         prompt.push_str("\nYou may choose a different market by setting \"market_id\" in your response.\n\n");
     }
 
+    log_info!("loop: prompt: {}", prompt);
     prompt
 }
 
