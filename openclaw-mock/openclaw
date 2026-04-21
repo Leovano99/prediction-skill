@@ -17,26 +17,27 @@ def main():
         print("Sessions purged successfully.")
         sys.exit(1)
 
-    api_key = "API_KEY"
+    api_key = ""
     if not api_key:
-        print("Error: DEEPSEEK_API_KEY environment variable not set", file=sys.stderr)
+        print("Error: API_KEY environment variable not set", file=sys.stderr)
         sys.exit(1)
 
-    url = 'https://api.deepseek.com/chat/completions'
+    url = 'https://9router.leyon.my.id/v1/chat/completions'
     
     payload = {
-        "model": "deepseek-chat",
+        "model": "cx/gpt-5.4",
         "messages": [
             {"role": "system", "content": "you are acting as openclaw, so the response must be stdout like. if the prompt is about predict analytics, Write new, original analysis that reflects your own reading of mentioned market (because you are a professional trader analysis with 30+ YoE)."},
             {"role": "user", "content": command_str}
         ],
-        "temperature": 0.2,
+        "temperature": 0.1,
         "stream": False
     }
     
     headers = {
         'Content-Type': 'application/json',
-        'Authorization': f'Bearer {api_key}'
+        'Authorization': f'Bearer {api_key}',
+        'User-Agent': 'curl/8.4.0'
     }
 
     req = urllib.request.Request(url, data=json.dumps(payload).encode('utf-8'), headers=headers, method='POST')
