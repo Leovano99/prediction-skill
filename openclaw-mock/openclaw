@@ -17,7 +17,8 @@ def main():
         print("Sessions purged successfully.")
         sys.exit(1)
 
-    api_key = ""
+    # get api key from .env
+    api_key = os.getenv("API_KEY")
     if not api_key:
         print("Error: API_KEY environment variable not set", file=sys.stderr)
         sys.exit(1)
@@ -25,7 +26,7 @@ def main():
     url = 'https://9router.leyon.my.id/v1/chat/completions'
     
     payload = {
-        "model": "cx/gpt-5.4",
+        "model": "cx/gpt-5.4-mini",
         "messages": [
             {"role": "system", "content": "you are acting as openclaw, so the response must be stdout like. if the prompt is about predict analytics, Write new, original analysis that reflects your own reading of mentioned market (because you are a professional trader analysis with 30+ YoE)."},
             {"role": "user", "content": command_str}
