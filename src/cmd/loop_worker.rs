@@ -746,8 +746,8 @@ fn build_prompt(
         "contrarian" => (0.20, 0.35, "Fade the crowd with conviction."),
         _ => (0.15, 0.25, "Size according to conviction."),
     };
-    let min_tickets = (balance * min_pct).floor() as u32;
-    let max_tickets = (balance * max_pct).floor() as u32;
+    let min_tickets = ((balance * min_pct).floor() as u32).min(70_000);
+    let max_tickets = ((balance * max_pct).floor() as u32).min(95_000);
     prompt.push_str(&format!(
         "- **Your sizing ({}):** {}-{} tickets per trade. {}\n",
         persona, min_tickets, max_tickets, sizing_note
