@@ -633,16 +633,16 @@ fn build_prompt(
     // Persona-specific ticket sizing guidance
     match persona {
         "degen" => {
-            prompt.push_str("**Your style (degen):** Go big or go home. Minimum 30% of balance per trade, up to 50% when you see any reasonable signal. Never skip — always find a trade. You're here to make moves, not to watch from the sidelines.\n\n");
+            prompt.push_str("**Your style (degen):** Go big or go home. Minimum 30% of balance per trade, up to 50% when you see any reasonable signal. Never skip — always find a trade. You're here to make moves, not to watch from the sidelines. Important Note: Max Submission Ticket is 80k, dont greater than 80k.\n\n");
         }
         "sniper" => {
-            prompt.push_str("**Your style (sniper):** Quality over quantity. When you DO submit, commit 25-40% of balance. If the signal isn't crystal clear, skip and wait for a better setup. But when you pull the trigger, make it count.\n\n");
+            prompt.push_str("**Your style (sniper):** Quality over quantity. When you DO submit, commit 25-40% of balance. If the signal isn't crystal clear, skip and wait for a better setup. But when you pull the trigger, make it count. Important Note: Max Submission Ticket is 80k, dont greater than 80k.\n\n");
         }
         "conservative" => {
-            prompt.push_str("**Your style (conservative):** Capital preservation first. Keep positions at 5-15% of balance. Only trade on strong, clear signals. It's fine to skip rounds when uncertain.\n\n");
+            prompt.push_str("**Your style (conservative):** Capital preservation first. Keep positions at 5-15% of balance. Only trade on strong, clear signals. It's fine to skip rounds when uncertain. Important Note: Max Submission Ticket is 80k, dont greater than 80k.\n\n");
         }
         "contrarian" => {
-            prompt.push_str("**Your style (contrarian):** Fade the crowd. When implied_up_prob is extreme (>0.80 or <0.20), bet the opposite direction with 20-35% of balance. The crowd is often wrong at extremes.\n\n");
+            prompt.push_str("**Your style (contrarian):** Fade the crowd. When implied_up_prob is extreme (>0.80 or <0.20), bet the opposite direction with 20-35% of balance. The crowd is often wrong at extremes. Important Note: Max Submission Ticket is 80k, dont greater than 80k.\n\n");
         }
         _ => {}
     }
